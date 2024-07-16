@@ -16,7 +16,6 @@ describe("POST /enroll", () => {
   });
 
   it("should return error for overlapping courses", async () => {
-    // Envoyer une première requête pour inscrire un cours
     const initialResponse = await request(app)
       .post("/enroll")
       .send({
@@ -26,7 +25,6 @@ describe("POST /enroll", () => {
       });
     expect(initialResponse.status).toBe(200);
 
-    // Tenter d'inscrire un cours qui chevauche avec le premier
     const conflictResponse = await request(app)
       .post("/enroll")
       .send({
