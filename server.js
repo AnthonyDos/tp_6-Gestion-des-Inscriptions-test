@@ -29,6 +29,9 @@ app.post("/submit", (req, res) => {
   enrolledCourses.push({ name, email, phone });
   res.status(200).json({ message: "Formulaire reçu!" });
 });
+app.get("/enroll.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/views", "enroll.html"));
+});
 
 app.post("/enroll", (req, res) => {
   const { courses } = req.body;
